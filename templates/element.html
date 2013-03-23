@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block tbody -%}
-		{% for item in medias -%}
-		<tr>
+        {% for item in medias -%}
+        <tr>
             <th rowspan="2" class="style49">{{ loop.index }}</th>
             <td class="style49">{{ item.acodec }}</td>
             <td class="style49">{{ item.vcodec }}</td>
@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <td class="style51">Lien DDL:</td>
-            <td colspan="5" class="style49"><a href="javascript:void()">{{ item.filename }}</a></td>
+            <td colspan="5"><a href="javascript:void()" class="style49">{{ item.filename }}</a></td>
         </tr>
         {%- endfor %}
 {%- endblock %}
