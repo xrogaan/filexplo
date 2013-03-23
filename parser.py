@@ -91,9 +91,11 @@ def parse_file(currentFile):
                      'width': rawinfo.video[0].width,
                      'acodec': rawinfo.audio[0].codec})
     elif rawinfo.media == 'MEDIA_AUDIO':
-        info = dict({'type': rawinfo.type,
-                     'length': rawinfo.length,
-                     'acodec': rawinfo.audio[0].codec})
+        print('IGNORED')
+        return
+        #info = dict({'type': rawinfo.type,
+        #             'length': rawinfo.length,
+        #             'acodec': rawinfo.codec})
     else:
         logger.warning('Unsupported media format: {0}'.format(rawinfo.media))
 
