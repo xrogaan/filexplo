@@ -98,7 +98,11 @@ def parse_file(currentFile):
         logger.warning('Unsupported media format: {0}'.format(rawinfo.media))
 
     with open(currentFile, 'r') as f:
-        mcrc32 = format(crc32(f.read()) & 0xFFFFFFFF, '08x')
+        prev = 0
+        for eline in f:
+            prev = crc32(eline, prev)
+        mcrc32 = format(prev & 0xFFFFFFFF, '08x')
+
     info.update({'filename': os.path.basename(currentFile),
                  'size': os.path.getsize(currentFile)/1024/1024,
                  'extension': os.path.basename(currentFile)[-3:],
